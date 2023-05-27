@@ -20,7 +20,6 @@ end
 # create a dog object and access public method
 dog = Dog.new("black", "Rex")
 dog.bring_a_stick()
-dog.make_a_web()
 
 # Polymorphism - speak() method in multiple form
 animal = Animal.new("lion", 4, "Rex")

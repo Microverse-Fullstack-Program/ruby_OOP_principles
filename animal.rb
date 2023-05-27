@@ -3,12 +3,15 @@ require "./foods.rb"
 
 # Class definition
 class Animal
+  attr_accessor :owner, :visits
+
   def initialize(type, number_of_legs, name = "Unknown")
     @id = Random.rand(1..1000)
     @name = name
     @number_of_legs = number_of_legs
     @type = type
     @liked_food = NoFood.new() # composition
+    @visits = []
   end
 
   # Encapsulation: binding data to method and 
@@ -49,45 +52,9 @@ class Animal
   def likes_food?(food)
     @liked_food.is_liked?(food) # delegation - composed method
   end
+
+  def owner=(owner)
+    @owner = owner
+    owner.animals.push(self) unless owner.animals.include?(self)
+  end
 end
-
-# object instansation
-animal_1 = Animal.new("dog", 4, "Rex")
-
-# access instance varible with getter
-animal_1.id
-animal_1.type
-animal_1.name
-animal_1.number_of_legs
-
-# another object instansation
-animal_2 = Animal.new("cat", 8)
-animal_2.name
-animal_2.name = "Fluffy" # set instance varibale with setter method
-animal_2.name
-
-# using a composed method
-animal = Animal.new("lion", 4, "Rex")
-dog = Dog.new("black", "Rex")
-spider = Spider.new(85, "Wilma")
-
-animal.number_of_legs
-dog.number_of_legs
-spider.number_of_legs
-
-animal.remove_leg()
-dog.remove_leg()
-spider.remove_leg()
-
-animal.number_of_legs
-dog.number_of_legs
-spider.number_of_legs
-
-
-animal.likes_food?("meat")
-dog.likes_food?("meat")
-spider.likes_food?("meat")
-
-animal.likes_food?("bug")
-dog.likes_food?("bug")
-spider.likes_food?("bug")

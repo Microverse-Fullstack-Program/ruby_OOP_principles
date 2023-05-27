@@ -19,7 +19,6 @@ end
 
 # create a dog object and access public method
 spider = Spider.new(85, "Wilma")
-spider.bring_a_stick()
 spider.make_a_web()
 
 # Polymorphism - speak() method in multiple form
