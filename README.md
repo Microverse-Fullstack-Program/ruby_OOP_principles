@@ -1,5 +1,6 @@
 # OOP four principles by example
 <img src="oop_concepts.png" alt="oop_concepts">
+
 ## What are we building?
 
 We are going to build some classes to represent animals. Initially, we are going to make some naive code and then we'll improve it by using the OOP principles.
